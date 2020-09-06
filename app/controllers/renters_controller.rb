@@ -7,6 +7,7 @@ class RentersController < ApplicationController
   end
 
   def history
+    @histories = current_user.checkout_records.order('id desc')
   end
 
   def book_car
