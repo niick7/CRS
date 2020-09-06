@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: cars
+#
+#  id           :integer          not null, primary key
+#  make         :string
+#  model        :string
+#  year         :string
+#  color        :string
+#  numOfSeats   :integer
+#  licensePlate :string
+#  rentPrice    :decimal(10, 2)
+#  isAvailable  :boolean          default("1")
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  make: MyString
+  model: MyString
+  year: MyString
+  color: MyString
+
+two:
+  make: MyString
+  model: MyString
+  year: MyString
+  color: MyString

@@ -1,0 +1,35 @@
+<h2>
+  Renters
+  <span class='text-right'><h6><%= link_to 'New Renter', 'renters/new' %></h6></span>
+</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @renters.each do |r|%>
+        <tr>
+          <td><%= r.id %></td>
+          <td><%= r.email %></td>
+          <td><%= r.firstName %></td>
+          <td><%= r.lastName %></td>
+          <td><%= r.phoneNumber %></td>
+          <td><%= r.created_at.strftime("%Y %b %d") %></td>
+          <td>
+            <%= link_to 'Edit', edit_admin_renter_path(r) %> - 
+            <%= link_to 'Destroy', admin_renter_path(r), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
