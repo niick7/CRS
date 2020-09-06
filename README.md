@@ -8,6 +8,8 @@
   - Create database:        rails db:create
   - Create database schema: rails db:migrate
   - Create dummy data:      rails db:seeds
+  - Install bundler:        gem install bundler
+  - Install rails library:  bundle install
   
   - In case want to update with new dummy data: rails db:drop . Then re-setup.
 
