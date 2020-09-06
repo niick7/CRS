@@ -1,24 +1,12 @@
-# README
+# Car Rental System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.6.1p33
 
-Things you may want to cover:
+* Database: SQLite3
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Set up:
+  - Create database:        rails db:create
+  - Create database schema: rails db:migrate
+  - Create dummy data:      rails db:seeds
+  
+  - In case want to update with new dummy data: rails db:drop . Then re-setup.
