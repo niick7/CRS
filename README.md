@@ -10,3 +10,7 @@
   - Create dummy data:      rails db:seeds
   
   - In case want to update with new dummy data: rails db:drop . Then re-setup.
+
+* Launch server: rails s # Local web server will be launch with default port: 3000
+
+* Use web browser to enter local web server via link: http://localhost:3000
