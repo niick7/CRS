@@ -1,0 +1,34 @@
+<h2 class="mb-4">Available Cars</h2>
+
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+        <th>NumOfSeats</th>
+        <th>LicensePlate</th>
+        <th>Price/day</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @available_cars.each do |c|%>
+        <tr>
+          <td><%= c.id %></td>
+          <td><%= c.make %></td>
+          <td><%= c.model %></td>
+          <td><%= c.year %></td>
+          <td><%= c.color %></td>
+          <td><%= c.numOfSeats %></td>
+          <td><%= c.licensePlate %></td>
+          <td><%= c.rentPrice %></td>
+          <td><%= link_to 'Book', book_car_renter_path(c), class: 'btn btn-info'%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

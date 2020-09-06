@@ -16,4 +16,8 @@
 #  updated_at       :datetime         not null
 #
 class CheckoutRecord < ApplicationRecord
+  belongs_to :car
+  belongs_to :renter
+
+  validates_presence_of :pickupDate, :dueDate
 end

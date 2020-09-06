@@ -13,6 +13,20 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :renters, except: [:new, :create, :edit, :update, :destroy, :index, :show] do
+    collection do
+      get 'available_cars'
+      get 'history'
+      get 'return_car'
+    end
+
+    member do
+      get 'book_car'
+      post 'execute_book_car'
+      post 'execute_return_car'
+    end
+  end
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#login'
   get 'logout', to: 'sessions#logout'

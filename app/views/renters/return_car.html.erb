@@ -1,0 +1,60 @@
+<h2 class="mb-4">Booked Car Information</h2>
+
+<%= form_with(url: execute_return_car_renter_path(@car), local: true, class: 'col-md-8 mb-3') do |f| %>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Make Name</label>
+      <%= text_field_tag :make, @car.make, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Model Name</label>
+      <%= text_field_tag :model, @car.model, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Year</label>
+      <%= text_field_tag :year, @car.year, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Color</label>
+      <%= text_field_tag :year, @car.color, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Num of Seats</label>
+      <%= text_field_tag :year, @car.numOfSeats, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>License Plate</label>
+      <%= text_field_tag :year, @car.licensePlate, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Price per Day</label>
+      <%= text_field_tag :year, @car.rentPrice, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <label>Rent Days</label>
+      <%= text_field_tag :ren_days, @rent_days, class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <%= check_box_tag :isDamaged %>
+      <label for="isDamaged">Is Damaged?</label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Return</button>
+<% end %>

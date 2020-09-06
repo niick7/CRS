@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_admin!
-      redirect_to login_path, warning: 'Unauthorized!' and return if session[:user_id].blank? || !is_admin?
+      redirect_to root_path, warning: 'Unauthorized!' and return unless is_admin?
     end
 
     def is_admin?

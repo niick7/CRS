@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_051028) do
     t.string "firstName"
     t.string "lastName"
     t.string "phoneNumber"
+    t.boolean "isBooking", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

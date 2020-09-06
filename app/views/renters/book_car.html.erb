@@ -1,0 +1,13 @@
+<h2 class="mb-4">Book Car</h2>
+
+<%= form_with(url: execute_book_car_renter_path(@car), local: true, class: 'col-md-8 mb-3') do |f| %>
+  <div class="form-row mb-3">
+    <div class="form-group">
+      <%= text_field_tag :numOfDays, params[:numOfDays], class: "form-control", placeholder: 'Num of days should be not exceed 7 days' %>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Book</button>
+<% end %>
+
+<%= link_to 'Back', available_cars_renters_path %>

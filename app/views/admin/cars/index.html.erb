@@ -39,8 +39,8 @@
           </td>
           <td><%= c.created_at.strftime("%Y %b %d") %></td>
           <td>
-            <%= link_to 'Edit', edit_admin_car_path(c) %> - 
-            <%= link_to 'Destroy', [:admin, c], method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_admin_car_path(c), class: 'btn btn-secondary' %>  
+            <%= link_to 'Delete', [:admin, c], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           </td>
         </tr>
       <% end %>

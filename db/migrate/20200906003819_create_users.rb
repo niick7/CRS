@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :firstName
       t.string :lastName
       t.string :phoneNumber
+      t.boolean :isBooking, default: false
 
       t.timestamps
     end
