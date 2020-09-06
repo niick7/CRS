@@ -1,3 +1,37 @@
 <h2>
   History
 </h2>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Renter Name</th>
+        <th>Car ID</th>
+        <th>Car's Make</th>
+        <th>Car's Model</th>        
+        <th>Pickup Date</th>
+        <th>Return Date</th>
+        <th>Rent Price</th>
+        <th>Fine of Damage</th>
+        <th>Fine of Return Late</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @history.each do |h|%>
+        <tr>
+          <td><%= h.id %></td>
+          <td><%= h.renter.firstName + h.renter.lastName  %></td>
+          <td><%= h.car_id %></td>
+          <td><%= h.car.make %></td>
+          <td><%= h.car.model %></td>
+          <td><%= h.pickupDate.strftime("%Y %b %d %H:%M:%S") if h.pickupDate.present? %></td>
+          <td><%= h.returnDate.strftime("%Y %b %d %H:%M:%S") if h.returnDate.present? %></td>
+          <td><%= h.rentPrice %></td>
+          <td><%= h.fineOfLateReturn %></td>
+          <td><%= h.fineOfDamaged %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
