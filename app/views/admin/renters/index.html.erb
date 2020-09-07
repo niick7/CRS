@@ -11,6 +11,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Phone Number</th>
+        <th>Booked</th>
         <th>Created At</th>
         <th>Actions</th>
       </tr>
@@ -23,6 +24,13 @@
           <td><%= r.firstName %></td>
           <td><%= r.lastName %></td>
           <td><%= r.phoneNumber %></td>
+          <td>
+          <% if r.isBooking%>
+              <svg class="bi bi-check-circle-fill text-success" fill='currentColor' height='2.5em' viewbox='0 0 16 16' width='2.5em'>
+                <path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z' fill-rule='evenodd' />
+              </svg>
+            <% end %>
+          </td>
           <td><%= r.created_at.strftime("%Y %b %d") %></td>
           <td>
             <%= link_to 'Edit', edit_admin_renter_path(r), class: 'btn btn-secondary' %>  

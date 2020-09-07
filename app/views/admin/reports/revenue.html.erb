@@ -1,3 +1,87 @@
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <h2>
-  Revenue
+  Revenue 
 </h2>
+
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+    <form method="GET" autocomplete=“off”>
+      <tr>
+        <th>From date
+        <input type="text" id="datepickerFrom" name='fromDate' value='<%=params[:fromDate]%>'/>
+        </th>
+        <th>To date
+        <input type="text" id="datepickerTo" name='toDate' value='<%=params[:toDate]%>'/>
+        </th>
+        <th>
+          <input type="submit" value="Search"/>
+        </th>
+
+        <th colspan = 3></th>
+      </tr>
+    </form>
+        <td>
+          Renter Id
+        </td>
+        <td>
+          Car Id
+        </td>
+        <td>
+          Pickup Date
+        </td>
+        <td>
+          Return Date
+        </td>
+        <td style="text-align:right">
+          Total Price
+        </td>
+      </tr>
+    </thead>
+  <% totalprice = 0 %>
+  <% @checkoutrecord.where(pickupDate: [DateTime.strptime(session[:fromdate], "%m/%d/%Y").beginning_of_day..DateTime.strptime(session[:todate], "%m/%d/%Y").end_of_day]).each do |c|%>
+      <tr>
+        <td>
+          <%= c.renter.email %>
+        </td>
+        <td>
+        <%= c.car.model %> <%= c.car.year %> <%= c.car.color %>
+        </td>
+        <td>
+        <%= c.pickupDate %>
+        </td>
+        <td>
+        <%= c.returnDate %>
+        </td>
+        <td style="text-align:right">
+        <%= c.rentPrice.to_f + c.fineOfLateReturn.to_f + c.fineOfDamaged %> <% totalprice = totalprice + c.rentPrice.to_f + c.fineOfLateReturn.to_f + c.fineOfDamaged %>
+        </td>
+      </tr>
+  <% end %>
+      <td colspan = 3>
+      </td>
+      <td>
+      <b>Revenue</b>
+      </td>
+      <td style="text-align:right">  <%= totalprice %></td>
+  </table>
+
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#datepickerFrom").datepicker({
+            dateFormat:'mm/dd/yy'
+        })
+    });
+    $(function () {
+        $("#datepickerTo").datepicker({
+            dateFormat:'mm/dd/yy'
+        })
+    });
+</script>
+
